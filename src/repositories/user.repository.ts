@@ -6,9 +6,9 @@ export class UserRepository {
     return await prisma.user.findMany();
   }
 
-  //   async findById(id: number): Promise<User | null> {
-  //     return await prisma.user.findUnique({ where: { id } });
-  //   }
+  async findById(id: string): Promise<User | null> {
+    return await prisma.user.findUnique({ where: { id } });
+  }
 
   //   async create(data: Omit<User, "id" | "createdAt">): Promise<User> {
   //     return await prisma.user.create({ data });

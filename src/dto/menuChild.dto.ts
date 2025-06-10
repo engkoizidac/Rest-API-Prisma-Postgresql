@@ -1,4 +1,4 @@
-import { MenuMain } from "./menuMain";
+import { MenuMain } from "./menuMain.dto";
 
 export interface MenuChild {
   id: number;

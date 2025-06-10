@@ -1,19 +1,32 @@
-import { Request, Response } from "express";
+import { Request, RequestHandler, Response } from "express";
 import { UserService } from "../services/user.service";
 
 const userService = new UserService();
 
 export class UserController {
-  async getUsers(req: Request, res: Response) {
+  public getUsers: RequestHandler = async (
+    req: Request,
+    res: Response
+  ): Promise<void> => {
     const users = await userService.getUsers();
+    if (!users) {
+      res.status(404).send("Users not found");
+      return;
+    }
     res.json(users);
-  }
+  };
 
-  //   async getUser(req: Request, res: Response) {
-  //     const user = await userService.getUser(Number(req.params.id));
-  //     if (!user) return res.status(404).send('User not found');
-  //     res.json(user);
-  //   }
+  public getUser: RequestHandler = async (
+    req: Request,
+    res: Response
+  ): Promise<void> => {
+    const user = await userService.getUser(String(req.params.id));
+    if (!user) {
+      res.status(404).send("User not found");
+      return;
+    }
+    res.json(user);
+  };
 
   //   async createUser(req: Request, res: Response) {
   //     const { email, name } = req.body;

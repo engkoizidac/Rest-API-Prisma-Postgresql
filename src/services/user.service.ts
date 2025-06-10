@@ -8,9 +8,9 @@ export class UserService {
     return userRepository.findAll();
   }
 
-  //   async getUser(id: number): Promise<User | null> {
-  //     return userRepository.findById(id);
-  //   }
+  async getUser(id: string): Promise<User | null> {
+    return userRepository.findById(id);
+  }
 
   //   async createUser(email: string, name?: string): Promise<User> {
   //     return userRepository.create({ email, name });
