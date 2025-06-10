@@ -1,4 +1,4 @@
-import { MenuChild } from "./menuChild";
+import { MenuChild } from "./menuChild.dto";
 
 export interface AccessPrivilege {
   id: number;

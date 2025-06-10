@@ -1,3 +1,6 @@
+// This is the Prisma schema file.
+// It defines the data model and the database connection.
+
 generator client {
   provider = "prisma-client-js"
 }
