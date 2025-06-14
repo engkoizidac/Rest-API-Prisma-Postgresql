@@ -23,4 +23,8 @@ export class UserService {
   //   async deleteUser(id: number): Promise<User> {
   //     return userRepository.delete(id);
   //   }
+
+  async getAuthUser(username: string): Promise<User | null> {
+    return userRepository.findByUsername(username);
+  }
 }

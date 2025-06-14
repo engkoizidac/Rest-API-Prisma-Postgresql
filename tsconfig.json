@@ -13,6 +13,6 @@
     "resolveJsonModule": true, // Allow importing JSON files
     "noImplicitAny": true // Raise error on expressions with `any` type
   },
-  "include": ["src/**/*.ts"], // Include all TypeScript files in src
+  "include": ["src/**/*.ts", "src/prisma/client.ts"], // Include all TypeScript files in src
   "exclude": ["node_modules", "dist"] // Exclude build and dependency directories
 }

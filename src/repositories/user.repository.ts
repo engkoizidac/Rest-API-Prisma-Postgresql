@@ -1,5 +1,5 @@
-import { User } from "../dto/user.dto";
 import { prisma } from "../prisma/client";
+import { User } from "../dto/user.dto";
 
 export class UserRepository {
   async findAll(): Promise<User[]> {
@@ -21,4 +21,8 @@ export class UserRepository {
   //   async delete(id: number): Promise<User> {
   //     return await prisma.user.delete({ where: { id } });
   //   }
+
+  async findByUsername(username: string): Promise<User | null> {
+    return await prisma.user.findUnique({ where: { username } });
+  }
 }
