@@ -35,4 +35,13 @@ export class AuthController {
     res.clearCookie("session");
     res.status(200).json({ message: "Logged out" });
   };
+
+  public protected: RequestHandler = async (
+    req: Request,
+    res: Response
+  ): Promise<void> => {
+    res
+      .status(200)
+      .json({ message: "You are now authenticated", user: req.user });
+  };
 }

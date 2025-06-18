@@ -10,5 +10,17 @@ class UserService {
     async getUser(id) {
         return userRepository.findById(id);
     }
+    //   async createUser(email: string, name?: string): Promise<User> {
+    //     return userRepository.create({ email, name });
+    //   }
+    //   async updateUser(id: number, data: Partial<User>): Promise<User> {
+    //     return userRepository.update(id, data);
+    //   }
+    //   async deleteUser(id: number): Promise<User> {
+    //     return userRepository.delete(id);
+    //   }
+    async getAuthUser(username) {
+        return userRepository.findByUsername(username);
+    }
 }
 exports.UserService = UserService;

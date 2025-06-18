@@ -3,25 +3,26 @@ import userRoutes from "./routes/user.routes";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth.routes";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 
 const app = express();
 
-// app.use(
-//   cors({
-//     origin: "http://localhost:5173", //allowing cross-origin requests
-//     credentials: true, //allowing credentials
-//   })
-// );
-
 app.use(
   cors({
-    origin: true, //allowing all origins
+    origin: "http://localhost:5173", //allowing cross-origin requests
     credentials: true, //allowing credentials
   })
 );
 
+// app.use(
+//   cors({
+//     origin: true, //allowing all origins
+//     credentials: true, //allowing credentials
+//   })
+// );
+app.use(cookieParser());
 app.use(express.json());
 
 app.use("/api/users", userRoutes);
