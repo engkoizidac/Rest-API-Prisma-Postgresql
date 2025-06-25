@@ -55,10 +55,11 @@ export async function requireAuth(
     const payload = await decrypt(token);
     if (!payload) {
       res.status(401).json({ message: "Invalid or expired session" });
+      return;
     }
 
     req.user = payload;
-    console.log("User authenticated:", req.user);
+    // console.log("User authenticated:", req.user);
 
     next(); // Pass to next middleware/route
   } catch (error) {

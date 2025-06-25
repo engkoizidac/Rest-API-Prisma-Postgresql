@@ -13,19 +13,19 @@ export class AuthController {
     const user = await userService.getAuthUser(username);
 
     if (!user) {
-      res.status(401).json({ error: "User not found!" });
+      res.status(401).json({ message: "User not found!" });
       return;
     }
 
     const isValidPassword = await bcrypt.compare(password, user.password);
 
     if (!isValidPassword) {
-      res.status(401).json({ error: "Invalid credentials" });
+      res.status(401).json({ message: "Invalid password!" });
       return;
     }
 
     await createSession(res, user.id);
-    res.status(200).json({ message: "Login successful" });
+    res.status(200).json({ message: "Login successful2" });
   };
 
   public logout: RequestHandler = async (
